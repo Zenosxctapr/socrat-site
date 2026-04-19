@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SocratPump — Wisdom for Degenerates</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9942A;
+    --gold-light: #F0C060;
+    --gold-pale: #F7E6B0;
+    --stone: #2A2318;
+    --stone-mid: #3D3022;
+    --parchment: #F5EDD8;
+    --parchment-dark: #D9C99A;
+    --ink: #1A1208;
+    --smoke: rgba(255,240,200,0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #0E0B06;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #2A1E0A 0%, transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    color: var(--parchment);
+    font-family: 'IM Fell English', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem 2rem;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,148,42,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .logo-img {
+    width: min(480px, 90vw);
+    filter: drop-shadow(0 0 40px rgba(201,148,42,0.35)) drop-shadow(0 8px 32px rgba(0,0,0,0.8));
+    animation: logoIn 1s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  @keyframes logoIn {
+    from { opacity: 0; transform: translateY(-24px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .tagline {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(11px, 2vw, 14px);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: -0.5rem;
+    opacity: 0.85;
+    animation: fadeUp 1s 0.3s both;
+  }
+
+  .divider {
+    width: min(500px, 85vw);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2rem auto;
+    opacity: 0.4;
+  }
+
+  /* ── QUOTES FEED ── */
+  .quotes {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .quote-block {
+    padding: 2.8rem 0;
+    border-bottom: 1px solid rgba(201,148,42,0.12);
+    animation: fadeUp 0.7s both;
+    position: relative;
+  }
+
+  .quote-block:last-child { border-bottom: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .quote-block:nth-child(1)  { animation-delay: 0.15s; }
+  .quote-block:nth-child(2)  { animation-delay: 0.22s; }
+  .quote-block:nth-child(3)  { animation-delay: 0.29s; }
+  .quote-block:nth-child(4)  { animation-delay: 0.36s; }
+  .quote-block:nth-child(5)  { animation-delay: 0.43s; }
+  .quote-block:nth-child(6)  { animation-delay: 0.50s; }
+  .quote-block:nth-child(7)  { animation-delay: 0.57s; }
+  .quote-block:nth-child(8)  { animation-delay: 0.64s; }
+  .quote-block:nth-child(9)  { animation-delay: 0.71s; }
+  .quote-block:nth-child(10) { animation-delay: 0.78s; }
+  .quote-block:nth-child(11) { animation-delay: 0.85s; }
+  .quote-block:nth-child(12) { animation-delay: 0.92s; }
+  .quote-block:nth-child(13) { animation-delay: 0.99s; }
+  .quote-block:nth-child(14) { animation-delay: 1.06s; }
+  .quote-block:nth-child(15) { animation-delay: 1.13s; }
+  .quote-block:nth-child(16) { animation-delay: 1.20s; }
+  .quote-block:nth-child(17) { animation-delay: 1.27s; }
+  .quote-block:nth-child(18) { animation-delay: 1.34s; }
+  .quote-block:nth-child(19) { animation-delay: 1.41s; }
+  .quote-block:nth-child(20) { animation-delay: 1.48s; }
+
+  .quote-glyph {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 72px;
+    line-height: 0.7;
+    color: var(--gold);
+    opacity: 0.18;
+    position: absolute;
+    top: 2.2rem;
+    left: -0.2rem;
+    user-select: none;
+  }
+
+  .quote-text {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: clamp(17px, 2.5vw, 22px);
+    line-height: 1.75;
+    color: var(--parchment);
+    padding-left: 1.2rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-attr {
+    margin-top: 1.1rem;
+    padding-left: 1.2rem;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(10px, 1.6vw, 13px);
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    opacity: 0.7;
+    font-style: normal;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 3rem 1.5rem 4rem;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.3;
+    border-top: 1px solid rgba(201,148,42,0.1);
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0E0B06; }
+  ::-webkit-scrollbar-thumb { background: rgba(201,148,42,0.3); border-radius: 2px; }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    top: 0; right: 0;
+    padding: 1.1rem 1.5rem;
+    z-index: 100;
+  }
+
+  .x-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(201,148,42,0.35);
+    border-radius: 3px;
+    background: rgba(14,11,6,0.75);
+    backdrop-filter: blur(8px);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+  }
+
+  .x-btn:hover {
+    border-color: var(--gold);
+    background: rgba(201,148,42,0.1);
+    color: var(--gold-light);
+  }
+
+  .x-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="x-btn" href="https://x.com/Socratwisdom" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    Follow
+  </a>
+</nav>
+
+<section class="hero">
+  <img
+    class="logo-img"
+    src="/mnt/user-data/uploads/1776616318321_image.png"
+    alt="SocratPump — Wisdom for Degenerates"
+  />
+  <p class="tagline">Wisdom for Degenerates</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="quotes">
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">The unexamined wallet is not worth holding. And yet here you are, checking it every four minutes.</p>
+    <p class="quote-attr">— Socrates, watching you refresh the chart</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">I know that I know nothing. You, however, claimed to know the bottom — and bought it three times on the way down.</p>
+    <p class="quote-attr">— Socrates, on technical analysis</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">Know thyself. Know thine entry. Know that the dev wallet has been moving for the past six minutes and none of you noticed.</p>
+    <p class="quote-attr">— Socrates, on chain analysis</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">Beware the barrenness of a busy chart. Volume without direction is simply a man screaming into a candle.</p>
+    <p class="quote-attr">— Socrates, on wash trading</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">He who is not content with a 2x will not be content with a 100x. He will, however, be content to hold through a 97% drawdown while posting "we're so back."</p>
+    <p class="quote-attr">— Socrates, a week before getting rugged</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">Strong minds discuss ideas. Average minds discuss events. Weak minds ask when Binance in the Telegram at 2 in the morning.</p>
+    <p class="quote-attr">— Socrates, in the group chat</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">To find yourself, first lose yourself entirely — preferably in a coin with no roadmap, no team photo, and a name that is simply a picture of a cat wearing a hat.</p>
+    <p class="quote-attr">— Socrates, on the hero's journey</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">The secret of change is to focus all your energy not on fighting the old, but on building the new. The old coin that rugged me at 4am is irrelevant. I have moved on. I bought another one exactly like it.</p>
+    <p class="quote-attr">— Socrates, coping magnificently</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">Education is the kindling of a flame, not the filling of a vessel. The CA, however, is in the pinned message. Please read the pinned message.</p>
+    <p class="quote-attr">— Socrates, doing entry-level alpha</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">By all means, marry. If you get a good wife, you'll become happy. If you get a bad one, you'll become a philosopher. Either way: better than holding this bag into hour seven.</p>
+    <p class="quote-attr">— Socrates, on long-term conviction</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">The greatest wealth is to live content with little. Unfortunately, no one in this chat has ever attempted that, and several of you have lost money they did not technically have.</p>
+    <p class="quote-attr">— Socrates, in the hodlers channel</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">Be kind, for everyone you meet is fighting a hard battle. Especially the dev who has now posted "we back" four times today and means it every single time.</p>
+    <p class="quote-attr">— Socrates, giving grace to the devout</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">The measure of a man is what he does with power. Also what he does when he controls 80% of the liquidity in hour two and everyone is watching.</p>
+    <p class="quote-attr">— Socrates, a direct message to the dev</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">Wonder is the beginning of wisdom. Specifically the wonder you feel watching your entire position become a red candle of unusual ambition in under forty seconds.</p>
+    <p class="quote-attr">— Socrates, on market structure</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">An honest man is always a child. The man who buys the top is also always a child. These are different conditions that produce the same outcome.</p>
+    <p class="quote-attr">— Socrates, gently</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">I cannot teach anybody anything. I can only make them think. Specifically, I want you to think about why you put 70% of your portfolio into a coin called $SOCKS at midnight.</p>
+    <p class="quote-attr">— Socrates, on financial literacy</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">Death may be the greatest of all human blessings. I say this not as philosophy, but as someone who has watched the same man buy the same rug four times in one week.</p>
+    <p class="quote-attr">— Socrates, with compassion</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">The only true wisdom is in knowing you know nothing. You, however, posted your "analysis" in three different chats before the coin had been alive for eleven minutes.</p>
+    <p class="quote-attr">— Socrates, reading the replies</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">True knowledge exists in knowing that you know nothing. False knowledge exists in the form of a chart you drew on your phone at 3am and called a "W pattern."</p>
+    <p class="quote-attr">— Socrates, on technical literacy</p>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-glyph">"</span>
+    <p class="quote-text">He is richest who is content with the least. You are not he. You are the man who sold the least and held the most and watched them both go to zero in sequence.</p>
+    <p class="quote-attr">— Socrates, tallying the damage</p>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+<footer class="footer">© SocratPump · Wisdom for Degenerates · All losses are your own</footer>
+
+</body>
+</html>
