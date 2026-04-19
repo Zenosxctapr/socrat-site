@@ -51,15 +51,6 @@
     background: radial-gradient(ellipse at 50% 30%, rgba(201,148,42,0.18) 0%, transparent 70%);
     pointer-events: none;
   }
-
-  .logo-img {
-    width: min(480px, 90vw);
-    filter: drop-shadow(0 0 40px rgba(201,148,42,0.35)) drop-shadow(0 8px 32px rgba(0,0,0,0.8));
-    animation: logoIn 1s cubic-bezier(0.16,1,0.3,1) both;
-  }
-
-  @keyframes logoIn {
-    from { opacity: 0; transform: translateY(-24px) scale(0.96); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
@@ -229,11 +220,6 @@
 </nav>
 
 <section class="hero">
-  <img
-    class="logo-img"
-    src="/mnt/user-data/uploads/1776616318321_image.png"
-    alt="SocratPump — Wisdom for Degenerates"
-  />
   <p class="tagline">Wisdom for Degenerates</p>
 </section>
 
